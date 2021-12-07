@@ -1,0 +1,42 @@
+.carouselImg {
+    position: absolute;
+    max-width: none;
+}
+
+.refresh {
+    padding: 10px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.prev,
+.next {
+    position: absolute;
+    z-index: 2;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    filter:url(#inset-shadow);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}

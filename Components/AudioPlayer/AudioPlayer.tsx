@@ -21,25 +21,25 @@ const playlist: Array<Song> = [{
     id: 0,
     name: 'Where have you been, my disco?',
     artist: 'IV of Spades',
-    url: '/songs/IV OF SPADES - Where Have You Been, My Disco.mp3',
+    url: './songs/IV OF SPADES - Where Have You Been, My Disco.mp3',
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 1,
     name: 'Shine On You Crazy Diamond',
     artist: 'Pink Floyd',
-    url: '/songs/Pink Floyd - Shine On You Crazy Diamond.mp3',
+    url: './songs/Pink Floyd - Shine On You Crazy Diamond.mp3',
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 2,
     name: '2 minutes to midnight',
     artist: 'Iron Maiden',
-    url: '/songs/Iron Maiden - 2 Minutes To Midnight.mp3',
+    url: './songs/Iron Maiden - 2 Minutes To Midnight.mp3',
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 3,
     name: 'WWC',
     artist: 'The Main Squeeze',
-    url: '/songs/The Main Squeeze - WWC.mp3',
+    url: './songs/The Main Squeeze - WWC.mp3',
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 4,
@@ -57,31 +57,31 @@ const playlist: Array<Song> = [{
     id: 6,
     name: 'Voxifera',
     artist: 'ERA',
-    url: '/songs/ERA - Voxifera.mp3',
+    url: './songs/ERA - Voxifera.mp3',
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 7,
     name: 'Rylynn',
     artist: 'Andy McKee',
-    url: '/songs/Andy McKee - Rylynn.mp3',
+    url: './songs/Andy McKee - Rylynn.mp3',
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 8,
     name: 'Hurt',
     artist: 'Johnny Cash',
-    url: '/songs/Johnny Cash - Hurt.mp3',
+    url: './songs/Johnny Cash - Hurt.mp3',
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 9,
     name: 'Again',
     artist: 'Yui',
-    url: '/songs/YUI - Again.mp3',
+    url: './songs/YUI - Again.mp3',
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 10,
     name: 'Damn!!',
     artist: 'Stamp',
-    url: '/songs/STAMP -  Damn!!.mp3',
+    url: './songs/STAMP -  Damn!!.mp3',
     thumb: 'https://picsum.photos/500/500'
 }]
 

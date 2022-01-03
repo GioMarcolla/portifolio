@@ -2,32 +2,42 @@ import { Box, Divider, Flex, Heading, Text } from "@chakra-ui/layout"
 import { useColorModeValue } from "@chakra-ui/color-mode"
 import SkewedAlbum from "../SkewedAlbum/SkewedAlbum"
 import GridAlbum from "../GridAlbum/GridAlbum"
-import AudioPlayer from "../AudioPlayer/AudioPlayer"
+import dynamic from 'next/dynamic'
+import { NextPage } from "next"
 
-const ShortIntro = () => {
+interface Props {}
+
+const AudioPlayerNoSSR = dynamic(
+    () => import("../AudioPlayer/AudioPlayer"), 
+    {ssr: false}
+)
+
+const ShortIntro: NextPage<Props> = () => {
     return (
         <Box
             id='Intro'
             display='flex'
-            flexDir={{ base: 'column', md: 'row' }}
+            flexDir='row'
             w={{ base: '100%', md: '90%' }}
             mx={{ base: '0', md: 'auto' }}
-            paddingBottom={{ base: '1rem', md: '8rem' }}
+            pt={{ base: '1rem', md: '12rem' }}
+            pb={{ base: '1rem', md: '8rem' }}
             pos='relative'
             h={{ base: 'auto', md: '100vh' }}
-            alignItems={{ base: 'center', md: 'flex-end' }}
+            alignItems={{ base: 'center', md: 'flex-start' }}
+            justifyContent={{ base: 'center', md: 'flex-start' }}
         >
             <Flex
                 as={Flex}
                 flexDir='column'
                 position='relative'
-                alignItems={{ base: 'center', md: 'flex-start' }}
-                w={{ base: 'max-content', md: '48%' }}
-                minW={{ base: 'unset', md: '30em' }}
+                w={{ base: 'max-content', md: '47%' }}
+                minW={{ base: 'unset', md: '643px' }}
                 px={{ base: '5%', md: 0 }}
-                py={{ base: 0, md: 8 }}
+                // pb='2rem'
                 mx={{ base: 'auto', md: '0' }}
                 zIndex={2}
+                h='100%'
                 bg={useColorModeValue('linear-gradient(90deg, bg.light, bg.lightA, transparent)',
                     'linear-gradient(90deg, var(--chakra-colors-bg-dark-100), var(--chakra-colors-bg-dark-100), transparent)')}
             >
@@ -47,26 +57,33 @@ const ShortIntro = () => {
                     mb={4}
                     border='none'
                     h='2px'
-                    w='98%'
+                    w='100%'
                     bg={{ base: useColorModeValue('black', 'accent.dark.3'), md: useColorModeValue('black', 'linear-gradient(90deg, var(--chakra-colors-accent-dark-3), transparent 90%, transparent 92%)') }}
                 />
                 <Heading
                     fontSize={{ base: '2xl', md: '3xl' }}
                     lineHeight={1}
-                    textAlign={{ base: 'center', md: 'start' }}
+                    textAlign={{ base: 'center', md: 'justify' }}
                 >
                     Engineer, Teacher, Pet Lover, Music Aficionado
                 </Heading>
-                <Box
-                    maxH='4rem'
+                <Text fontSize={{ base: 'lg', md: 'xl' }} pt='1rem' textAlign={'justify'}>
+                    In this website you will find information about myself, both professional and personal.
+                    This website is also an eternal beta, always been modified and improved. Found something broken? Just send me an email and I'll fix it a soon as possible.
+                </Text>
+
+                <Flex
+                    w='100%'
+                    m='auto'
+                    mb={0}
                 >
-                    <AudioPlayer />
-                </Box>
+                   <AudioPlayerNoSSR />
+                </Flex>
                 {/* <Text fontSize={{ base: 'lg', md: 'xl' }}>Your time is valuable, give it to those who care.</Text>
-                <Text fontSize={{ base: 'lg', md: 'xl' }}>The most important you can acquire is knowledge.</Text>
-                <Text fontSize={{ base: 'lg', md: 'xl' }}>There is always something new and exiting to learn.</Text>
-                <Text fontSize={{ base: 'lg', md: 'xl' }}>Passing knowledge to others will forever bring you joy.</Text> */}
+                <Text fontSize={{ base: 'lg', md: 'xl' }}>The most important you can acquire is knowledge.</Text> */}
+                {/* <Text fontSize={{ base: 'lg', md: 'xl' }}>Passing knowledge to others will forever bring you joy.</Text> */}
             </Flex>
+
             <SkewedAlbum />
             <GridAlbum />
         </Box>

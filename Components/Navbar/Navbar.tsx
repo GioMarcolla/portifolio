@@ -36,7 +36,6 @@ const Navbar = () => {
                 justifyContent='center'
                 alignItems='center'
             >
-
                 <BaseMenu routes={routes} />
                 <DropdownMenu />
             </Flex>

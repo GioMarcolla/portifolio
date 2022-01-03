@@ -19,10 +19,9 @@ const BaseMenu: NextPage<Props> = (props) => {
                     props.routes.map((r: string, i: number) => {
                         const op = router.asPath === (r === 'home' ? '/' : ('/' + r)) ? 1 : 0
                         return (
-                            <NextLink href={r === 'home' ? '/' : '/' + r} replace >
+                            <NextLink href={r === 'home' ? '/' : '/' + r} replace key={i}>
                                 <Button 
                                     variant='oldVibe' 
-                                    key={i}
                                     _before={{
                                         content: '" "',
                                         opacity: op,

@@ -59,9 +59,9 @@ const theme = extendTheme({
         bg: {
             light: '#FFFFFF',
             dark: {
-                100: '#0A0410',
-                200: '#171922',
-                400: '#3E505F'
+                100: '#0C0A0E',
+                200: '#17161B',
+                400: '#3E5059'
             },
             lightA: '#FFFFFFBB',
             darkA: '#0F0E12CC'

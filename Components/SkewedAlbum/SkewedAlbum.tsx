@@ -6,13 +6,36 @@ interface Props { }
 
 const SkewedAlbum: NextPage<Props> = () => {
     const hoverShadow = useColorModeValue('0 0 8px #88BBEE', '0 0 8px var(--chakra-colors-accent-dark-3)')
+    
+    interface Section {
+        id: number,
+        name: string,
+        url: string
+    }
 
+    const sections:Array<Section> = [{
+        id: 0,
+        name: 'Pets',
+        url: ''
+    }, {
+        id: 1,
+        name: 'Engineering',
+        url: ''
+    }, {
+        id: 2,
+        name: 'Teaching',
+        url: ''
+    }, {
+        id: 3,
+        name: 'Webdev',
+        url: ''
+    }]
     return (
         <Box
             display={{ base: 'none', md: 'flex' }}
-            // w='max-content'
-            ml='auto'
-            mr='1rem'
+            zIndex={1}
+            pos="absolute"
+            right={'1rem'}
             style={{ perspective: '70rem' }}
         >
             <Grid
@@ -20,116 +43,44 @@ const SkewedAlbum: NextPage<Props> = () => {
                 templateColumns="repeat(2, 1fr)"
                 gap={4}
                 h='40vw'
-                w='40vw'
-                minH='25em'
-                minW='25em'
+                w='50vw'
+                minH='470px'
+                minW='30em'
                 maxH='60vh'
-                maxW='60vh'
-                gridAutoFlow='dense'
+                maxW='75vh'
                 transform='rotateY(-15deg)'
             >
-                <GridItem
-                    colSpan={1}
-                    rowSpan={1}
-                    bg='url(https://picsum.photos/id/70/1000/1000)'
-                    bgSize='cover'
-                    d='flex'
-                    alignItems='end'
-                    justifyContent='end'
-                    _hover={{
-                        boxShadow: hoverShadow
-                    }}
-                >
-                    <Text
-                        fontSize='xl'
-                        variant='industrial'
-                        fontWeight='bold'
-                        letterSpacing='2px'
-                        mb='0.5rem'
-                        color='accent.dark.3'
-                        filter='url(#inset-shadow)'
-                        style={{
-                            textOrientation: 'upright',
-                            writingMode: 'vertical-rl',
+                {sections.map((section) => {
+                    return <GridItem
+                        key={'sa' + section.id}
+                        colSpan={1}
+                        rowSpan={1}
+                        bg={'url(https://picsum.photos/id/'+ Math.floor(Math.random() * 100) +'/1000/1000)'}
+                        bgSize='cover'
+                        d='flex'
+                        alignItems='end'
+                        justifyContent='end'
+                        _hover={{
+                            boxShadow: hoverShadow
                         }}
                     >
-                        PETS
-                    </Text>
-                </GridItem>
-                <GridItem
-                    colSpan={1}
-                    rowSpan={1}
-                    bg='url(https://picsum.photos/id/40/1000/1000)'
-                    bgSize='cover'
-                    d='flex'
-                    alignItems='end'
-                    justifyContent='end'
-                    _hover={{
-                        boxShadow: hoverShadow
-                    }}
-                >
-                    <Text
-                        fontWeight='bold'
-                        variant='industrial'
-                        color='accent.dark.3'
-                        fontSize='xl'
-                        mr='0.5rem'
-                        filter='url(#inset-shadow)'
-                    >
-                        ENGINEERING
-                    </Text>
-                </GridItem>
-                <GridItem
-                    colSpan={1}
-                    rowSpan={1}
-                    bg='url(https://picsum.photos/id/50/1000/1000)'
-                    bgSize='cover'
-                    d='flex'
-                    alignItems='end'
-                    justifyContent='end'
-                    _hover={{
-                        boxShadow: hoverShadow
-                    }}
-                >
-                    <Text
-                        fontWeight='bold'
-                        variant='industrial'
-                        color='accent.dark.3'
-                        fontSize='xl'
-                        mr='0.5rem'
-                        filter='url(#inset-shadow)'
-                    >
-                        TEACHING
-                    </Text>
-                </GridItem>
-                <GridItem
-                    colSpan={1}
-                    rowSpan={1}
-                    bg='url(https://picsum.photos/id/60/1000/1000)'
-                    bgSize='cover'
-                    d='flex'
-                    alignItems='end'
-                    justifyContent='end'
-                    _hover={{
-                        boxShadow: hoverShadow
-                    }}
-                >
-                    <Text
-                        fontSize='xl'
-                        variant='industrial'
-                        fontWeight='bold'
-                        letterSpacing='2px'
-                        mb='0.5rem'
-                        color='accent.dark.3'
-                        filter='url(#inset-shadow)'
-                        style={{
-                            textOrientation: 'upright',
-                            writingMode: 'vertical-rl',
-                        }}
-                    >
-                        WEBDEV
-                    </Text>
-                </GridItem>
+                        <Text
+                            fontSize='xl'
+                            variant='industrial'
+                            fontWeight='bold'
+                            letterSpacing='2px'
+                            mb='0.5rem'
+                            color='accent.dark.3'
+                            filter='url(#inset-shadow)'
+                            style={{
+                                textOrientation: 'upright',
+                                writingMode: 'vertical-rl',
+                            }}
+                        >
+                            {section.name}
+                        </Text>
+                    </GridItem>
+                })}
             </Grid>
         </Box>
     )

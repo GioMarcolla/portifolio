@@ -85,8 +85,8 @@ const playlist: Array<Song> = [{
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 11,
-    name: 'Scorpions & Berlin Philarmonic Orchestra - Rock You Like a Hurricane',
-    artist: 'Scorpions',
+    name: 'Rock You Like a Hurricane',
+    artist: 'Scorpions & Berlin Philarmonic Orchestra',
     url: './songs/Scorpions & Berlin Philarmonic Orchestra - Rock You Like a Hurricane.mp3',
     thumb: 'https://picsum.photos/500/500'
 }]

@@ -31,7 +31,7 @@ const AboutMe = () => {
         <Box
             id='AboutMe'
             bg={useColorModeValue('#88BBEE', 'bg.dark.200')}
-            px={{ base: '5%', md: '13%' }}
+            px='5%'
             mt={{ base: '0', md: '2em' }}
             py='3rem'
             zIndex={4}

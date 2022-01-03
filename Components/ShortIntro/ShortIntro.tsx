@@ -58,7 +58,7 @@ const ShortIntro: NextPage<Props> = () => {
                     border='none'
                     h='2px'
                     w='100%'
-                    bg={{ base: useColorModeValue('accent.light', 'accent.dark'), md: useColorModeValue('black', 'linear-gradient(90deg, var(--chakra-colors-accent-dark-3), transparent 90%, transparent 92%)') }}
+                    bg={{ base: useColorModeValue('accent.light', 'accent.dark'), md: useColorModeValue('black', 'linear-gradient(90deg, var(--chakra-colors-accent-dark), transparent 90%, transparent 92%)') }}
                 />
                 <Heading
                     fontSize={{ base: '2xl', md: '3xl' }}

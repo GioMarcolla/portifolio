@@ -72,7 +72,7 @@ const MyTimeline: NextPage<Props> = () => {
                 alignItems='center'
                 py='1rem'
                 zIndex={2}
-                w={{ base: '90%', md: '74%' }}
+                w='90%'
                 m='auto'
             >
                 {points.map((p) => {

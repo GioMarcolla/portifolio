@@ -1,5 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/layout";
-import { Button, Image, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@chakra-ui/react";
+import { Button, Image, Slider, SliderFilledTrack, SliderThumb, SliderTrack, useFormControlProps } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/color-mode"
 import { NextPage } from "next";
 import { useEffect, useRef, useState } from 'react'
@@ -97,8 +97,7 @@ const AudioPlayer: NextPage<Props> = () => {
     const [volume, setVolume] = useState(0.5)
 
     const audioElement = useRef(new Audio(playlist[track].url))
-    audioElement.current.pause()
-    audioElement.current.volume = volume
+    audioElement.current.autoplay = false
 
     let updateTimer = () => {
         if (audioElement.current.ended) {
@@ -119,10 +118,13 @@ const AudioPlayer: NextPage<Props> = () => {
     //Change track hook
     useEffect(() => {
         audioElement.current.pause()
+        setPlaying(false)
         audioElement.current.src = playlist[track].url
         setTrackTimer(0)
         audioElement.current.currentTime = 0
-        audioElement.current.play().then(() => setPlaying(true))
+        audioElement.current.play()
+            .then(() => setPlaying(true))
+            .catch(() => console.log("Failed to play"))
 
     }, [track])
 
@@ -130,6 +132,7 @@ const AudioPlayer: NextPage<Props> = () => {
     useEffect(() => {
         return () => {
             audioElement.current.pause()
+            setPlaying(false)
             clearTimeout(timerRef.current)
         }
     }, [])
@@ -207,7 +210,7 @@ const AudioPlayer: NextPage<Props> = () => {
                             <PrevIcon />
                         </Button>
                         <Button bg='none' onClick={handlePlayPause} p={0}>
-                            {isPlaying ? <PauseIcon /> : <PlayIcon />}
+                            {(!audioElement.current.paused && !audioElement.current.ended && audioElement.current.readyState > audioElement.current.HAVE_CURRENT_DATA) ? <PauseIcon /> : <PlayIcon />}
                         </Button>
                         <Button bg='none' onClick={() => track < playlist.length - 1 ? changeTrack(track + 1) : changeTrack(0)} p={0}>
                             <NextIcon />

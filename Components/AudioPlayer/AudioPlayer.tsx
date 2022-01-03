@@ -21,7 +21,7 @@ const playlist: Array<Song> = [{
     id: 0,
     name: 'Where have you been, my disco?',
     artist: 'IV of Spades',
-    url: './songs/IV OF SPADES - Where Have You Been, My Disco.mp3',
+    url: '/songs/IV_OF_SPADES-Where_Have_You_Been_My_Disco.mp3',
     thumb: 'https://picsum.photos/500/500'
 }, {
     id: 1,

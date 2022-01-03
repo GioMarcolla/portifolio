@@ -30,7 +30,7 @@ const AboutMe = () => {
     return (
         <Box
             id='AboutMe'
-            bg={useColorModeValue('#88BBEE', 'bg.dark.200')}
+            bg={useColorModeValue('bg.light.200', 'bg.dark.200')}
             px='5%'
             mt={{ base: '0', md: '2em' }}
             py='3rem'

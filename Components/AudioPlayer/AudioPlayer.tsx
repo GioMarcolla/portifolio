@@ -3,8 +3,7 @@ import { Button, Image, Slider, SliderFilledTrack, SliderThumb, SliderTrack } fr
 import { useColorModeValue } from "@chakra-ui/color-mode"
 import { NextPage } from "next";
 import { useEffect, useRef, useState } from 'react'
-import { NextIcon, PauseIcon, PlayIcon, PrevIcon, VolumeIcon } from "../Icons/Icons";
-import { InfoIcon } from "@chakra-ui/icons";
+import { MutedIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, VolumeIcon } from "../Icons/Icons";
 
 
 interface Props { }
@@ -95,8 +94,11 @@ const AudioPlayer: NextPage<Props> = () => {
     const [track, changeTrack] = useState(Math.floor(Math.random() * playlist.length))
     const [isPlaying, setPlaying] = useState(false)
     const [trackTime, setTrackTimer] = useState(0)
+    const [volume, setVolume] = useState(0.5)
 
     const audioElement = useRef(new Audio(playlist[track].url))
+    audioElement.current.pause()
+    audioElement.current.volume = volume
 
     let updateTimer = () => {
         if (audioElement.current.ended) {
@@ -120,18 +122,9 @@ const AudioPlayer: NextPage<Props> = () => {
         audioElement.current.src = playlist[track].url
         setTrackTimer(0)
         audioElement.current.currentTime = 0
-        audioElement.current.play()
+        audioElement.current.play().then(() => setPlaying(true))
 
     }, [track])
-
-    // Play pause hook
-    useEffect(() => {
-        if (isPlaying) {
-            audioElement.current.pause()
-        } else {
-            audioElement.current.play()
-        }
-    }, [isPlaying])
 
     //Cleanup hook
     useEffect(() => {
@@ -156,10 +149,20 @@ const AudioPlayer: NextPage<Props> = () => {
             return "00:00 / 00:00"
         }
     }
+
+    const handlePlayPause = () => {
+        if (isPlaying) {
+            audioElement.current.pause()
+            setPlaying(false)
+        } else {
+            audioElement.current.play().then(() => setPlaying(true))
+        }
+    }
+
     return (
         <Box
             display='flex'
-            backgroundColor={useColorModeValue('red', 'bg.dark.200')}
+            backgroundColor={useColorModeValue('bg.light.200', 'bg.dark.200')}
             w='100%'
             p='0.5rem'
             borderRadius={'0.5rem'}
@@ -191,8 +194,8 @@ const AudioPlayer: NextPage<Props> = () => {
                     max={audioElement.current.duration || 0}
                     value={audioElement.current.currentTime}
                 >
-                    <SliderTrack bg='red.100'>
-                        <SliderFilledTrack bg={useColorModeValue('accent.light', 'accent.dark')} filter='url(#inset-shadow)'/>
+                    <SliderTrack bg={useColorModeValue('bg.light.400', 'bg.dark.400')}>
+                        <SliderFilledTrack bg={useColorModeValue('accent.light', 'accent.dark')} filter='url(#inset-shadow)' />
                     </SliderTrack>
                     <SliderThumb boxSize={4} >
                         <Box />
@@ -203,18 +206,18 @@ const AudioPlayer: NextPage<Props> = () => {
                         <Button bg='none' onClick={() => track >= 1 ? changeTrack(track - 1) : changeTrack(playlist.length - 1)} p={0}>
                             <PrevIcon />
                         </Button>
-                        <Button bg='none' onClick={() => setPlaying(!isPlaying)} p={0}>
+                        <Button bg='none' onClick={handlePlayPause} p={0}>
                             {isPlaying ? <PauseIcon /> : <PlayIcon />}
                         </Button>
                         <Button bg='none' onClick={() => track < playlist.length - 1 ? changeTrack(track + 1) : changeTrack(0)} p={0}>
                             <NextIcon />
                         </Button>
                         <Button bg='none' p={0}>
-                            <VolumeIcon />
+                            {volume <= 0 ? <MutedIcon /> : <VolumeIcon />}
                         </Button>
                     </Box>
                     <Box>
-                        <Text fontSize='2xl' variant='industrial'>{getTrackTime()}</Text>
+                        <Text fontSize='2xl' fontWeight={'normal'} variant='industrial'>{getTrackTime()}</Text>
                     </Box>
                 </Flex>
             </Flex>

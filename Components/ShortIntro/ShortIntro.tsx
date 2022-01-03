@@ -23,7 +23,6 @@ const ShortIntro: NextPage<Props> = () => {
             pt={{ base: '1rem', md: '12rem' }}
             pb={{ base: '1rem', md: '8rem' }}
             pos='relative'
-            h={{ base: 'auto', md: '100vh' }}
             alignItems={{ base: 'center', md: 'flex-start' }}
             justifyContent={{ base: 'center', md: 'flex-start' }}
         >
@@ -55,10 +54,11 @@ const ShortIntro: NextPage<Props> = () => {
                 </Heading>
                 <Divider
                     mb={4}
-                    border='none'
+                    // border='none'
+                    opacity={1}
                     h='2px'
                     w='100%'
-                    bg={{ base: useColorModeValue('accent.light', 'accent.dark'), md: useColorModeValue('black', 'linear-gradient(90deg, var(--chakra-colors-accent-dark), transparent 90%, transparent 92%)') }}
+                    bg={{ base: useColorModeValue('accent.light', 'accent.dark'), md: useColorModeValue('linear-gradient(90deg, var(--chakra-colors-accent-light) 30%, var(--chakra-colors-accent-light) 30%, transparent 90%, transparent 92%)', 'linear-gradient(90deg, var(--chakra-colors-accent-dark), transparent 90%, transparent 92%)') }}
                 />
                 <Heading
                     fontSize={{ base: '2xl', md: '3xl' }}

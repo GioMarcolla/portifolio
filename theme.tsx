@@ -57,18 +57,22 @@ const theme = extendTheme({
     },
     colors: {
         bg: {
-            light: '#FFFFFF',
+            light: {
+                100: '#FDFDFF',
+                200: '#F2F2F6',
+                400: '#E0E0E4'
+            },
             dark: {
                 100: '#0C0A0E',
                 200: '#17161B',
-                400: '#3E5059'
+                400: '#22222A'
             },
             lightA: '#FFFFFFBB',
             darkA: '#0F0E12CC'
         },
         accent: {
             dark: '#DEB050',
-            light: '#DEB050'
+            light: '#4040C0'
         },
         text: {
             dark: '#F7F8FF',

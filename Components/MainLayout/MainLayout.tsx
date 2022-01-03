@@ -12,7 +12,7 @@ interface Props {
 
 const MainLayout: NextPage<Props> = ({ children }) => {
     return (
-        <Box bg={useColorModeValue('bg.light', 'bg.dark.100')}>
+        <Box bg={useColorModeValue('bg.light.100', 'bg.dark.100')}>
             <Navbar />
             <ThemeToggler />
             <Flex

@@ -15,6 +15,8 @@ interface Props {
 
 const TimelinePoint: NextPage<Props> = (props) => {
     const p = props.point
+    const trimGrad = useColorModeValue('linear-gradient(90deg, var(--chakra-colors-accent-light), transparent)',
+                                       'linear-gradient(90deg, var(--chakra-colors-accent-dark), transparent)')
     return (
         <Box
             display='flex'
@@ -32,11 +34,11 @@ const TimelinePoint: NextPage<Props> = (props) => {
             <Box
                 w='48%'
                 p='1em'
-                bg={useColorModeValue('#D0D0DD', 'bg.dark.200')}
+                bg={useColorModeValue('bg.light.200', 'bg.dark.200')}
                 borderRadius='0.5em'
             >
                 <Text fontWeight='bold' fontSize='lg'>{p.value}</Text>
-                <Divider h='2px' bg={useColorModeValue('black', 'linear-gradient(90deg, var(--chakra-colors-accent-dark-3), transparent)')} border='none' />
+                <Divider h='2px' bg={trimGrad} border='none' />
                 <Text>{p.desc}</Text>
             </Box>
             <Flex w='4%' alignItems='center' justifyContent='center'>

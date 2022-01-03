@@ -83,7 +83,7 @@ const MyTimeline: NextPage<Props> = () => {
                     textStyle='sd'
                     w='4px'
                     h='100%'
-                    bg={useColorModeValue('#88BBEE', 'bg.dark.200')}
+                    bg={useColorModeValue('bg.light.200', 'bg.dark.200')}
                     top='0'
                 />
             </Flex >

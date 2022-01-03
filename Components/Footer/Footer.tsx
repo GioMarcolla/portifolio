@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <Box
             display='flex'
-            bg={useColorModeValue('#88BBEE', 'bg.dark.200')}
+            bg={useColorModeValue('bg.light.200', 'bg.dark.200')}
             justifyContent='center'
             alignItems='center'
             px={{base: '5%', md: '10%'}}

@@ -8,9 +8,9 @@ import { motion } from 'framer-motion'
 
 const ThemeToggler = () => {
     const { colorMode, toggleColorMode } = useColorMode()
-    const toggleBG = useColorModeValue('#D0D0DD', '#606066')
+    const toggleBG = useColorModeValue('bg.light.400', 'bg.dark.400')
     const toggleIcon = colorMode === "light" ? <SunIcon /> : <MoonIcon />
-    const btColor = useColorModeValue('#FFFFFF', '#000000')
+    const btColor = useColorModeValue('black', 'white')
 
     const StyledDiv = chakra(motion.div, {
         shouldForwardProp: prop => {

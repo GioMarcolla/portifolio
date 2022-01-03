@@ -43,14 +43,14 @@ const TimelinePoint: NextPage<Props> = (props) => {
                 <Text
                     fontWeight='bold'
                     fontSize='2xl'
-                    color={useColorModeValue('black', 'accent.dark.3')}
+                    color={useColorModeValue('accent.light', 'accent.dark')}
                 >
                     {'</>'}
                 </Text>
             </Flex>
             <Box
                 p='0.4em 0.6em'
-                bg={useColorModeValue('#88BBEE', 'accent.dark.3')}
+                bg={useColorModeValue('accent.light', 'accent.dark')}
                 borderRadius='0.3em'
             >
                 <Text

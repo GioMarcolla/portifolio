@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import NextLink from 'next/link'
 import { NextPage } from 'next'
 import { LinkedInIcon, DiscordIcon, GitHubIcon } from '../Icons/Icons'
+import { useColorModeValue } from "@chakra-ui/react"
 
 interface Props {
     routes: Array<string>;
@@ -11,10 +12,11 @@ interface Props {
 
 const BaseMenu: NextPage<Props> = (props) => {
     const router = useRouter()
-
+    const trimGrad = useColorModeValue('linear-gradient(90deg, var(--chakra-colors-accent-light) 78%, transparent 78%, transparent 90%, transparent 90%, var(--chakra-colors-accent-light) 90%, var(--chakra-colors-accent-light))',
+    'linear-gradient(90deg, var(--chakra-colors-accent-dark) 78%, transparent 78%, transparent 90%, transparent 90%, var(--chakra-colors-accent-dark) 90%, var(--chakra-colors-accent-dark))')
     return (
         <Box w='100%'>
-            <Flex d='inline-flex'>
+            <Flex d='inline-flex' position='relative'>
                 {
                     props.routes.map((r: string, i: number) => {
                         const op = router.asPath === (r === 'home' ? '/' : ('/' + r)) ? 1 : 0
@@ -27,12 +29,12 @@ const BaseMenu: NextPage<Props> = (props) => {
                                         opacity: op,
                                         position: 'absolute',
                                         height: '5px',
-                                        width: '5%',
+                                        width: '8%',
                                         bg: '#DDDDE0',
                                         margin: 'auto',
                                         transform: 'skewX(-45deg)',
                                         bottom: "5%",
-                                        right: "42%",
+                                        right: "27%",
                                         zIndex: 2,
                                         filter: 'url(#inset-shadow)'
                                     }}
@@ -41,7 +43,7 @@ const BaseMenu: NextPage<Props> = (props) => {
                                         position:'absolute',
                                         opacity: op,
                                         bottom: "5%",
-                                        bg: 'linear-gradient(90deg, var(--chakra-colors-accent-dark-3) 78%, transparent 78%, transparent 90%, transparent 90%, var(--chakra-colors-accent-dark-3) 90%, var(--chakra-colors-accent-dark-3))',
+                                        bg: trimGrad,
                                         display: 'block',
                                         height: '5px',
                                         width: 'calc(98% - 1.8rem)',

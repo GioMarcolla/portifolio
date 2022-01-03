@@ -83,6 +83,12 @@ const playlist: Array<Song> = [{
     artist: 'Stamp',
     url: './songs/STAMP -  Damn!!.mp3',
     thumb: 'https://picsum.photos/500/500'
+}, {
+    id: 11,
+    name: 'Scorpions & Berlin Philarmonic Orchestra - Rock You Like a Hurricane',
+    artist: 'Scorpions',
+    url: './songs/Scorpions & Berlin Philarmonic Orchestra - Rock You Like a Hurricane.mp3',
+    thumb: 'https://picsum.photos/500/500'
 }]
 
 const AudioPlayer: NextPage<Props> = () => {
@@ -186,7 +192,7 @@ const AudioPlayer: NextPage<Props> = () => {
                     value={audioElement.current.currentTime}
                 >
                     <SliderTrack bg='red.100'>
-                        <SliderFilledTrack bg='accent.dark.3' filter='url(#inset-shadow)'/>
+                        <SliderFilledTrack bg={useColorModeValue('accent.light', 'accent.dark')} filter='url(#inset-shadow)'/>
                     </SliderTrack>
                     <SliderThumb boxSize={4} >
                         <Box />

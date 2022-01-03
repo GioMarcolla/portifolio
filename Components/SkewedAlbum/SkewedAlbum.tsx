@@ -70,7 +70,7 @@ const SkewedAlbum: NextPage<Props> = () => {
                             fontWeight='bold'
                             letterSpacing='2px'
                             mb='0.5rem'
-                            color='accent.dark.3'
+                            color={useColorModeValue('accent.light', 'accent.dark')}
                             filter='url(#inset-shadow)'
                             style={{
                                 textOrientation: 'upright',

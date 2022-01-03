@@ -11,6 +11,8 @@ const AboutMe = () => {
             }
         }
     }
+    const trimGrad = useColorModeValue('linear-gradient(90deg, var(--chakra-colors-accent-light) 88%, transparent 88%, transparent 88%, transparent 94%, var(--chakra-colors-accent-light) 94%, var(--chakra-colors-accent-light))' ,
+                                       'linear-gradient(90deg, var(--chakra-colors-accent-dark) 88%, transparent 88%, transparent 88%, transparent 94%, var(--chakra-colors-accent-dark) 94%, var(--chakra-colors-accent-dark))')
     const item = {
         hidden: {
             opacity: 0,
@@ -48,18 +50,18 @@ const AboutMe = () => {
                     content: '" "',
                     position: 'absolute',
                     height: '8px',
-                    width: '5%',
+                    width: '5.7%',
                     bg: '#DDDDE0',
                     margin: 'auto',
                     transform: 'skewX(-45deg)',
                     bottom: 0,
-                    right: "28%",
+                    right: "18.4%",
                     zIndex: 2,
                     filter: 'url(#inset-shadow)'
                 }}
                 _after={{
                     content: '" "',
-                    bg: 'linear-gradient(90deg, var(--chakra-colors-accent-dark-3) 88%, transparent 88%, transparent 88%, transparent 94%, var(--chakra-colors-accent-dark-3) 94%, var(--chakra-colors-accent-dark-3))',
+                    bg: trimGrad,
                     display: 'block',
                     height: '8px',
                     width: '98%',

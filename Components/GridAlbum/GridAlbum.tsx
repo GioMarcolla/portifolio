@@ -1,5 +1,6 @@
 import { Img } from "@chakra-ui/image";
 import { Box, Grid, GridItem, Text } from "@chakra-ui/layout";
+import { useColorModeValue } from "@chakra-ui/react";
 import { NextPage } from "next";
 
 interface Props { }
@@ -31,7 +32,7 @@ const GridAlbum: NextPage<Props> = () => {
                         variant='industrial'
                         fontSize='xl'
                         fontWeight='bold'
-                        color='accent.dark.3'
+                        color={useColorModeValue('accent.light', 'accent.dark')}
                         textShadow='1px 1px 1px black'
                     >
                         PETS
@@ -53,7 +54,7 @@ const GridAlbum: NextPage<Props> = () => {
                         variant='industrial'
                         fontSize='xl'
                         fontWeight='bold'
-                        color='accent.dark.3'
+                        color={useColorModeValue('accent.light', 'accent.dark')}
                         textShadow='1px 1px 1px black'
                     >
                         ENGINEERING
@@ -75,7 +76,7 @@ const GridAlbum: NextPage<Props> = () => {
                         variant='industrial'
                         fontSize='xl'
                         fontWeight='bold'
-                        color='accent.dark.3'
+                        color={useColorModeValue('accent.light', 'accent.dark')}
                         textShadow='1px 1px 1px black'
                     >
                         TEACHING
@@ -97,7 +98,7 @@ const GridAlbum: NextPage<Props> = () => {
                         variant='industrial'
                         fontSize='xl'
                         fontWeight='bold'
-                        color='accent.dark.3'
+                        color={useColorModeValue('accent.light', 'accent.dark')}
                         textShadow='1px 1px 1px black'
                     >
                         WEBDEV

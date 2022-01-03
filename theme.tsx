@@ -67,11 +67,8 @@ const theme = extendTheme({
             darkA: '#0F0E12CC'
         },
         accent: {
-            dark: {
-                1: '#3A2050',
-                2: '#70B1DE',
-                3: '#DEB050'
-            }
+            dark: '#DEB050',
+            light: '#DEB050'
         },
         text: {
             dark: '#F7F8FF',

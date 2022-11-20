@@ -88,6 +88,12 @@ const playlist: Array<Song> = [{
     artist: 'Scorpions & Berlin Philarmonic Orchestra',
     url: './songs/Scorpions & Berlin Philharmonic Orchestra  - Rock You Like a Hurricane.mp3',
     thumb: 'https://picsum.photos/500/500'
+}, {
+    id: 12,
+    name: 'Pisces',
+    artist: 'JINJER',
+    url: './songs/Jinjer - Pisces.mp3',
+    thumb: 'https://picsum.photos/500/500'
 }]
 
 const AudioPlayer: NextPage<Props> = () => {
